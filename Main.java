@@ -9,6 +9,7 @@
 import java.util.Random;
 import java.util.Scanner;
 import java.io.File;
+import java.io.IOException;
 
 public class Main
 {
@@ -33,6 +34,7 @@ public class Main
 		for (int i = 0; i < NUM_GODS; i++) {
 		    gods[i] = gods_sc.nextLine();
 		}
+		gods_sc.close();
 		
 		Random rand = new Random();
 		Scanner sc = new Scanner(System.in);
@@ -65,12 +67,13 @@ public class Main
     		
     		clear();
 		}
+		
+		sc.close();
 	}
 	
-	public static void clear() {
-	    System.out.print("Everything on the console will cleared");
-        System.out.print("\033[H\033[2J");
+	public static void clear() throws IOException {
+	    System.out.print("Everything on the console will be cleared...");
+        System.out.print("\033[H\033[2J\n");
         System.out.flush();
 	}
-	
 }
