@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.io.File;;
 
-public class Main
+public class SmiteSelector
 {
 	public static void main(String[] args) throws Exception {
 	    int NUM_GODS = 122;
