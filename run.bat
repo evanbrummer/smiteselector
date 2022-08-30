@@ -1,4 +1,4 @@
-javac Main.java
-java Main.java
+javac SmiteSelector.java
+java SmiteSelector.java
 
 pause
