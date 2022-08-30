@@ -8,8 +8,7 @@
 *******************************************************************************/
 import java.util.Random;
 import java.util.Scanner;
-import java.io.File;
-import java.io.IOException;
+import java.io.File;;
 
 public class Main
 {
@@ -21,7 +20,7 @@ public class Main
 	    
 	    if (gods_file.exists()) {
 	        System.out.println("complete!");
-	        clear();
+	        ClearConsole();
 	    } else {
 	        System.out.println("FAILED (does not exist)");
 	        System.exit(0);
@@ -65,15 +64,36 @@ public class Main
     		
     		input = sc.nextLine();
     		
-    		clear();
+    		ClearConsole();
 		}
 		
 		sc.close();
 	}
-	
-	public static void clear() throws IOException {
+
+	/*
+	public static void clear() {	// Method not compatible with CMD
 	    System.out.print("Everything on the console will be cleared...");
         System.out.print("\033[H\033[2J\n");
         System.out.flush();
 	}
+	*/
+
+	public static void ClearConsole() {
+        try {
+            String operatingSystem = System.getProperty("os.name"); //Check the current operating system
+              
+            if(operatingSystem.contains("Windows")){        
+                ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "cls");
+                Process startProcess = pb.inheritIO().start();
+                startProcess.waitFor();
+            } else {
+                ProcessBuilder pb = new ProcessBuilder("clear");
+                Process startProcess = pb.inheritIO().start();
+
+                startProcess.waitFor();
+            } 
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
 }
