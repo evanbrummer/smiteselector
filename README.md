@@ -1,6 +1,6 @@
-# Smite God Selector (9.8)
+# Smite God Selector (9.10)
 
-Randomly selects a god to play by choosing a random row and column from the god menu. *Now including Ishtar!*
+Randomly selects a god to play by choosing a random row and column from the god menu. *Now including Maui!*
 
 ### To run this, you need the JDK
 
