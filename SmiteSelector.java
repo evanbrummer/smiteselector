@@ -42,7 +42,7 @@ public class SmiteSelector
 		}
 		gods_sc.close();
 
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		ClearConsole();
 		
 		Random rand = new Random();
