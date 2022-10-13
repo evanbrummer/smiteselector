@@ -13,18 +13,25 @@ import java.io.File;;
 public class SmiteSelector
 {
 	public static void main(String[] args) throws Exception {
-	    int NUM_GODS = 122;
+	    int NUM_GODS = 0;
 	    System.out.print("Loading gods.txt ... ");
 	    
 	    File gods_file = new File("gods.txt");
 	    
 	    if (gods_file.exists()) {
 	        System.out.println("complete!");
-	        ClearConsole();
 	    } else {
 	        System.out.println("FAILED (does not exist)");
 	        System.exit(0);
 	    }
+
+		Scanner load_sc = new Scanner(gods_file);
+		while (load_sc.hasNextLine()) {
+			NUM_GODS++;
+			load_sc.nextLine();
+		}
+		System.out.println(NUM_GODS + " gods loaded.");
+		load_sc.close();
 	    
 		Scanner gods_sc = new Scanner(gods_file);
 		String[] gods = new String[NUM_GODS];
@@ -34,6 +41,9 @@ public class SmiteSelector
 		    gods[i] = gods_sc.nextLine();
 		}
 		gods_sc.close();
+
+		Thread.sleep(3000);
+		ClearConsole();
 		
 		Random rand = new Random();
 		Scanner sc = new Scanner(System.in);
